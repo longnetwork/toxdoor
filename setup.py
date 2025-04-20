@@ -19,8 +19,8 @@ setup(
         'toxdoor': '.',
     },
 
-    packages=['toxdoor', 'toxcore'],
-
+    # packages=['toxdoor', 'toxcore'],
+    packages=['toxdoor'],
     
     install_requires=[
         # '',
