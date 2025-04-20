@@ -23,7 +23,7 @@ setup(
     
     
     install_requires=[
-        # '',
+        'requests>=2.32',
     ],
 
     include_package_data=True,
