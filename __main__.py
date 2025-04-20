@@ -8,7 +8,7 @@ if __name__ == '__main__':
     """
         Обновление ресурсов
 
-        python -m toxdor -h
+        python -m toxdoor -h
         
     """
     BOOTSTRAP_FILE = 'bootstrap.txt'
