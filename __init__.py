@@ -378,7 +378,16 @@ class Tox(metaclass=MetaTox):
                         logging.warning(f"{type(self).__name__}: {string_at(Tox.err_bootstrap_to_string(error)).decode(errors='backslashreplace')} ({addr}:{port})")
                         
         
-        
-        
+    def join(self, timeout=None):
+        """
+            Вся работа может быть только по коллбекам и нам нужен механизм спячки
+        """
+        t = None
+        with self.tlock:
+            if not ((t := self._iter_thread) and t.is_alive()):
+                t = None
+
+        if t:
+            t.join(timeout)
     
 

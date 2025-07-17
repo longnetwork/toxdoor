@@ -1,19 +1,18 @@
-astroid==3.3.9
-certifi==2025.1.31
-charset-normalizer==3.4.1
+astroid==3.3.11
+certifi==2025.7.14
+charset-normalizer==3.4.2
 clang==11.0
 ctypeslib2==2.4.0
-dill==0.3.9
-flake8==7.2.0
+dill==0.4.0
+flake8==7.3.0
 idna==3.10
 isort==6.0.1
 mccabe==0.7.0
-platformdirs==4.3.7
-pycodestyle==2.13.0
-pyflakes==3.3.2
-pylint==3.3.6
-requests==2.32.3
-tomlkit==0.13.2
-# Editable Git install with no remote (toxdoor==0.1)
--e /home/mint/Work/toxdoor
-urllib3==2.3.0
+platformdirs==4.3.8
+pycodestyle==2.14.0
+pyflakes==3.4.0
+pylint==3.3.7
+requests==2.32.4
+tomlkit==0.13.3
+-e git+https://github.com/longnetwork/toxdoor.git@50316ed8a663ec88f87a8cfd60a5df4e997bc669#egg=toxdoor
+urllib3==2.5.0
