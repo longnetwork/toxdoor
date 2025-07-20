@@ -23,12 +23,12 @@ long_line_behaviour=1
 long_line_column=72
 
 [files]
-current_page=0
-FILE_NAME_0=963;Python;0;EUTF-8;0;1;0;%2Fhome%2Fmint%2FWork%2Ftoxdoor%2F__init__.py;0;4
+current_page=13
+FILE_NAME_0=1299;Python;0;EUTF-8;0;1;0;%2Fhome%2Fmint%2FWork%2Ftoxdoor%2F__init__.py;0;4
 FILE_NAME_1=166926;Python;0;EUTF-8;0;1;0;%2Fhome%2Fmint%2FWork%2Ftoxdoor%2Ftoxcore%2Ftox_lin.py;0;4
 FILE_NAME_2=124007;C++;0;EUTF-8;0;1;0;%2Fhome%2Fmint%2FWork%2Ftoxdoor%2Ftoxcore%2Fc-toxcore%2Ftoxcore%2Ftox.h;0;4
 FILE_NAME_3=25;Python;0;EUTF-8;0;1;0;%2Fhome%2Fmint%2FWork%2Ftoxdoor%2Ftest%2F__init__.py;0;4
-FILE_NAME_4=824;Markdown;0;EUTF-8;0;1;0;%2Fhome%2Fmint%2FWork%2Ftoxdoor%2FDEV.md;0;4
+FILE_NAME_4=1008;Markdown;0;EUTF-8;0;1;0;%2Fhome%2Fmint%2FWork%2Ftoxdoor%2FDEV.md;0;4
 FILE_NAME_5=0;Sh;0;EUTF-8;0;1;0;%2Fhome%2Fmint%2FWork%2Ftoxdoor%2Ftoxcore%2Fbuild-all.sh;0;4
 FILE_NAME_6=546;Sh;0;EUTF-8;0;1;0;%2Fhome%2Fmint%2FWork%2Ftoxdoor%2Ftoxcore%2Fbuild-toxcore.sh;0;4
 FILE_NAME_7=619;Sh;0;EUTF-8;0;1;0;%2Fhome%2Fmint%2FWork%2Ftoxdoor%2Ftoxcore%2Fcrossgen-bindings.sh;0;4
@@ -37,7 +37,7 @@ FILE_NAME_9=1580;Sh;0;EUTF-8;0;1;0;%2Fhome%2Fmint%2FWork%2Ftoxdoor%2Ftoxcore%2Fc
 FILE_NAME_10=61;Markdown;0;EUTF-8;0;1;0;%2Fhome%2Fmint%2FWork%2Ftoxdoor%2FREADME.md;0;4
 FILE_NAME_11=6068;Python;0;EUTF-8;0;1;0;%2Fhome%2Fmint%2FWork%2Ftoxdoor%2Ftoxcore%2F__init__.py;0;4
 FILE_NAME_12=996;Python;0;EUTF-8;0;1;0;%2Fhome%2Fmint%2FWork%2Ftoxdoor%2Ftest%2Fgroupnew.py;0;4
-FILE_NAME_13=1156;Python;0;EUTF-8;0;1;0;%2Fhome%2Fmint%2FWork%2Ftoxdoor%2F__main__.py;0;4
+FILE_NAME_13=1397;Python;0;EUTF-8;0;1;0;%2Fhome%2Fmint%2FWork%2Ftoxdoor%2F__main__.py;0;4
 FILE_NAME_14=0;None;0;EUTF-8;0;1;0;%2Fhome%2Fmint%2FWork%2Ftoxdoor%2F.gitignore;0;4
 FILE_NAME_15=6710;Python;0;EUTF-8;0;1;0;%2Fhome%2Fmint%2FWork%2Ftoxdoor%2Ftoxcore%2Ftox_win.py;0;4
 FILE_NAME_16=2870;Python;0;EUTF-8;0;1;0;%2Fhome%2Fmint%2FWork%2Ftoxdoor%2Ftest%2Fconnect.py;0;4

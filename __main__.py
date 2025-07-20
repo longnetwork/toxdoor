@@ -35,10 +35,10 @@ if __name__ == '__main__':
         if html:
             m: list = re.findall(
                 (r'(?s)'
-                 r'<td>(?P<ipv4>[^<>]+)</td>.*?'
-                 r'<td>(?P<ipv6>[^<>]+)</td>.*?'
-                 r'<td>(?P<port>[^<>]+)</td>.*?'
-                 r'<td>(?P<pubkey>[0-9a-fA-F]{64})</td>.*?'
+                 r'<td>(?P<ipv4>[^<>]+)</td>[^<>]*'
+                 r'<td>(?P<ipv6>[^<>]+)</td>[^<>]*'
+                 r'<td>(?P<port>[^<>]+)</td>[^<>]*'
+                 r'<td>(?P<pubkey>[0-9a-fA-F]{64})</td>[^<>]*'
                  r'<td>(?P<maintainer>[^<>]+)</td>'),
                 html,
             )
