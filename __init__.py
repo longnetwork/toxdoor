@@ -39,7 +39,7 @@ if os.path.exists(BOOTSTRAP_FILE):
     with open(BOOTSTRAP_FILE, 'r', encoding='utf-8') as f:
         for line in f:
             line = (line or '').strip()
-            if line:
+            if line and not line.startswith('#'):
                 parts = line.split('\t')
                 if len(parts) < BOOTSTRAP_FIELDS: parts = parts + [''] * (BOOTSTRAP_FIELDS - len(parts))
 
