@@ -391,3 +391,50 @@ class Tox(metaclass=MetaTox):
             t.join(timeout)
     
 
+    @staticmethod
+    def calculate_address(_public_key, _nospam):
+        
+        public_key_size, nospam_size = Tox.public_key_size(), Tox.nospam_size()
+        
+        if isinstance(_public_key, str):
+            public_key = bytes.fromhex(_public_key)[0: public_key_size]
+        elif isinstance(_public_key, (bytes, bytearray)):
+            public_key = _public_key[0: public_key_size]
+        elif isinstance(_public_key, memoryview):
+            public_key = _public_key[0: public_key_size].tobytes()
+        else:
+            raise TypeError(f"Unsupported public_key type: {type(_public_key)}")
+
+        
+        if isinstance(_nospam, str):
+            nospam = bytes.fromhex(_nospam)[0: nospam_size]
+        elif isinstance(_nospam, (bytes, bytearray)):
+            nospam = _nospam[0: nospam_size]
+        elif isinstance(_nospam, memoryview):
+            nospam = _nospam[0: nospam_size].tobytes()
+        elif isinstance(_nospam, int):
+            nospam = _nospam.to_bytes(nospam_size, 'big')
+        else:
+            raise TypeError(f"Unsupported nospam type: {type(_nospam)}")
+
+
+        address, crc = public_key + nospam, bytearray(2)
+
+        for i, b in enumerate(address): crc[i % 2] = crc[i % 2] ^ b
+
+        return address + crc
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+    
