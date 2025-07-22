@@ -184,7 +184,10 @@ class Tox(metaclass=MetaTox):
         # Либо должны оканчиваться на `_cb` как в toxcore либо начинаться на `on_` но не одновременно
         # Остальная часть имени также как в toxcore (можно без префикса tox_)
         
-        for name, method in type(self).__dict__.items():  # XXX на инстанце наследника type(self).__dict__ дает методы только в наследнике
+        # for name, method in type(self).__dict__.items():  # XXX на инстанце наследника type(self).__dict__ дает методы только в наследнике
+        for name in dir(type(self)):
+            if name.startswith('__'): continue
+            method = getattr(self, name)
             if callable(method):
                 if name.startswith('tox_'):
                     name = name[4:]
