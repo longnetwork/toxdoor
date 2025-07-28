@@ -23,8 +23,8 @@ long_line_behaviour=1
 long_line_column=72
 
 [files]
-current_page=0
-FILE_NAME_0=10330;Python;0;EUTF-8;0;1;0;%2Fhome%2Fmint%2FWork%2Ftoxdoor%2F__init__.py;0;4
+current_page=12
+FILE_NAME_0=8823;Python;0;EUTF-8;0;1;0;%2Fhome%2Fmint%2FWork%2Ftoxdoor%2F__init__.py;0;4
 FILE_NAME_1=166926;Python;0;EUTF-8;0;1;0;%2Fhome%2Fmint%2FWork%2Ftoxdoor%2Ftoxcore%2Ftox_lin.py;0;4
 FILE_NAME_2=124007;C++;0;EUTF-8;0;1;0;%2Fhome%2Fmint%2FWork%2Ftoxdoor%2Ftoxcore%2Fc-toxcore%2Ftoxcore%2Ftox.h;0;4
 FILE_NAME_3=25;Python;0;EUTF-8;0;1;0;%2Fhome%2Fmint%2FWork%2Ftoxdoor%2Ftest%2F__init__.py;0;4
@@ -36,15 +36,15 @@ FILE_NAME_8=806;Sh;0;EUTF-8;0;1;0;%2Fhome%2Fmint%2FWork%2Ftoxdoor%2Ftoxcore%2Fge
 FILE_NAME_9=1930;Sh;0;EUTF-8;0;1;0;%2Fhome%2Fmint%2FWork%2Ftoxdoor%2Ftoxcore%2Fcrossbuild-toxcore.sh;0;4
 FILE_NAME_10=121;Markdown;0;EUTF-8;0;1;0;%2Fhome%2Fmint%2FWork%2Ftoxdoor%2FREADME.md;0;4
 FILE_NAME_11=5873;Python;0;EUTF-8;0;1;0;%2Fhome%2Fmint%2FWork%2Ftoxdoor%2Ftoxcore%2F__init__.py;0;4
-FILE_NAME_12=1437;Python;0;EUTF-8;0;1;0;%2Fhome%2Fmint%2FWork%2Ftoxdoor%2Ftest%2Fgroupnew.py;0;4
+FILE_NAME_12=997;Python;0;EUTF-8;0;1;0;%2Fhome%2Fmint%2FWork%2Ftoxdoor%2Ftest%2Fgroupnew.py;0;4
 FILE_NAME_13=1397;Python;0;EUTF-8;0;1;0;%2Fhome%2Fmint%2FWork%2Ftoxdoor%2F__main__.py;0;4
 FILE_NAME_14=0;None;0;EUTF-8;0;1;0;%2Fhome%2Fmint%2FWork%2Ftoxdoor%2F.gitignore;0;4
 FILE_NAME_15=6710;Python;0;EUTF-8;0;1;0;%2Fhome%2Fmint%2FWork%2Ftoxdoor%2Ftoxcore%2Ftox_win.py;0;4
-FILE_NAME_16=1896;Python;0;EUTF-8;0;1;0;%2Fhome%2Fmint%2FWork%2Ftoxdoor%2Ftest%2Fconnect.py;0;4
+FILE_NAME_16=3088;Python;0;EUTF-8;0;1;0;%2Fhome%2Fmint%2FWork%2Ftoxdoor%2Ftest%2Fconnect.py;0;4
 FILE_NAME_17=624;Python;0;EUTF-8;0;1;0;%2Fhome%2Fmint%2FWork%2Ftoxdoor%2Fsetup.py;0;4
 
 [VTE]
-last_dir=/home/mint/Work/toxdoor
+last_dir=/home/mint/Work/toxdoor/test
 
 [editor]
 line_wrapping=false
