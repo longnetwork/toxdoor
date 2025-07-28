@@ -180,6 +180,8 @@ class Tox(metaclass=MetaTox):
             raise RuntimeError(f"{type(self).__name__}: {string_at(Tox.err_new_to_string(error)).decode(errors='backslashreplace')}")
 
 
+        self.tlock = threading.RLock()
+
         # Инициализируем колбэки если они определены в наследниках
         # Либо должны оканчиваться на `_cb` как в toxcore либо начинаться на `on_` но не одновременно
         # Остальная часть имени также как в toxcore (можно без префикса tox_)
@@ -214,13 +216,11 @@ class Tox(metaclass=MetaTox):
                 restype = getattr(tox_cb_t, '_restype_', None); argtypes = getattr(tox_cb_t, '_argtypes_', tuple())
 
                 def _cb_call(_tp, *args, name=name, restype=restype, argtypes=argtypes):  # Замыкание по name, restype, argtypes
-
-                    # Колбеки всегда имеют первый параметр указывающий на _toxptr (_tp)
-                    py_args = [ to_py(ctobj, ct) for ctobj, ct in zip_longest(args, argtypes[1:]) ]
-
-                    ret = getattr(self, name)(*py_args)
-                    
-                    return to_ct(ret, restype)
+                    with self.tlock:
+                        # Колбеки всегда имеют первый параметр указывающий на _toxptr (_tp)
+                        py_args = [ to_py(ctobj, ct) for ctobj, ct in zip_longest(args, argtypes[1:]) ]
+                        ret = getattr(self, name)(*py_args)
+                        return to_ct(ret, restype)
                 
                 cb = tox_cb_t( _cb_call )
 
@@ -229,8 +229,6 @@ class Tox(metaclass=MetaTox):
 
         self._getattr_cache = {};  # Кеш оберток self.__getattr__()
 
-
-        self.tlock = threading.RLock()
 
         self._iter_time = None
         self._iter_thread = None
@@ -250,13 +248,12 @@ class Tox(metaclass=MetaTox):
 
 
     def __del__(self):
-        if self._toxptr:
-            try:
-                with self.tlock:
+        with self.tlock:
+            if self._toxptr:
+                try:
                     Tox.kill(self._toxptr); self._toxptr = None
-            except Exception as e:
-                logging.error(f"tox_kill: {e}")
-
+                except Exception as e:
+                    logging.error(f"tox_kill: {e}")
     
 
     def __getattr__(self, name):
@@ -278,15 +275,15 @@ class Tox(metaclass=MetaTox):
                 static_call = False
                 
             def wrap(*args):
-                
-                ct_args = [ to_ct(pyobj, ct) for pyobj, ct in zip_longest(args, argtypes) ];  # Скип POINTER_T(struct_Tox) (это как бы си-шный self)
+                with self.tlock:
+                    ct_args = [ to_ct(pyobj, ct) for pyobj, ct in zip_longest(args, argtypes) ];  # Скип POINTER_T(struct_Tox) (это как бы си-шный self)
 
-                if static_call:
-                    ret = tox_attr(*ct_args)
-                else:
-                    ret = tox_attr(_toxptr, *ct_args)
+                    if static_call:
+                        ret = tox_attr(*ct_args)
+                    else:
+                        ret = tox_attr(_toxptr, *ct_args)
 
-                return to_py(ret, restype)
+                    return to_py(ret, restype)
 
             wrap.tox_attr = tox_attr
             wrap.__name__ = name
@@ -368,7 +365,7 @@ class Tox(metaclass=MetaTox):
             if bootstraps:
                 bootstraps = bootstraps.copy(); shuffle(bootstraps);  # (ipv4 + ":" + port, pubkey)
 
-                for url, pubkey in bootstraps:
+                for url, pubkey in bootstraps[:4]:
                     addr, *port = url.split(':'); port = int(port and port[0] or 33445); pubkey = bytes.fromhex(pubkey)
 
                     assert len(pubkey) == Tox.public_key_size()
