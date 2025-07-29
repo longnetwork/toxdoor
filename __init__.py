@@ -303,6 +303,10 @@ class Tox(metaclass=MetaTox):
         user_data_p = pointer(py_object(user_data)) if user_data is not None else None;  # None ~ c_void_p()
         
         with self.tlock:
+
+            if self._toxptr is None:
+                return
+            
             if self._iter_time is None:
                 Tox.iterate(self._toxptr, user_data_p)
                 self._iter_time = time();      # Момент последней итерации
@@ -334,6 +338,9 @@ class Tox(metaclass=MetaTox):
         while self._iter_thread and _iter_thread_id == id(self._iter_thread):  # Маркер завершения после вызова self.stop_iterate()
                                                                                # Даже если быстро дать новый self.start_iterate(),
                                                                                # то старый висячий поток не останется
+
+            
+                                                                               
             self._iterate()
 
             if self._iter_priority is not None:
