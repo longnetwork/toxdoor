@@ -247,13 +247,7 @@ class Tox(metaclass=MetaTox):
             self._iter_thread = None;  # Атомарная
 
 
-    def __del__(self):
-        with self.tlock:
-            if self._toxptr:
-                try:
-                    Tox.kill(self._toxptr); self._toxptr = None
-                except Exception as e:
-                    logging.error(f"tox_kill: {e}")
+    def __del__(self): self.close()
     
 
     def __getattr__(self, name):
@@ -345,6 +339,7 @@ class Tox(metaclass=MetaTox):
             if self._iter_priority is not None:
                 sleep(self._iter_priority)
 
+
     
     def connect(self, bootstraps=None):
         """
@@ -378,6 +373,17 @@ class Tox(metaclass=MetaTox):
                         logging.warning(f"{type(self).__name__}: {string_at(Tox.err_bootstrap_to_string(error)).decode(errors='backslashreplace')} ({addr}:{port})")
                         
         
+    def close(self):
+        with self.tlock:
+            if self._toxptr:
+                try:
+                    Tox.kill(self._toxptr); self._toxptr = None
+                except Exception as e:
+                    logging.error(f"tox_kill: {e}")
+
+                self.stop_iterate()
+    
+
     def join(self, timeout=None):
         """
             Вся работа может быть только по коллбекам и нам нужен механизм спячки
@@ -389,7 +395,7 @@ class Tox(metaclass=MetaTox):
 
         if t:
             t.join(timeout)
-    
+
 
     @staticmethod
     def calculate_address(_public_key, _nospam):
