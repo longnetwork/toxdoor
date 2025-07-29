@@ -72,7 +72,7 @@ class Tox(metaclass=MetaTox):
     BOOTSTRAP_TIMEOUT = 12.0;  # бутстрапинг длится до 10s (https://github.com/irungentoo/Tox_Client_Guidelines/blob/master/Required/Bootstrapping.md)
 
     
-    def __init__(self, iter_priority: "sleep time, s" = 0.001, **opts):
+    def __init__(self, iter_priority: "sleep time, s" = 0.005, **opts):
         """
             struct Tox_Options {
                 bool ipv6_enabled;
